@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  tech-challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tech-challenge:1
+    container_name: tech-challenge
+    restart: on-failure
+    ports:
+      - "8080:8080"
