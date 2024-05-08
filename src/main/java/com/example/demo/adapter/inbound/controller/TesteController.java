@@ -13,7 +13,6 @@ public class TesteController {
 
     @GetMapping
     private ResponseEntity<?> testeController(){
-
         return ResponseEntity.ok("Hello");
     }
 

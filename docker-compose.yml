@@ -10,3 +10,10 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
+  localstack:
+    container_name: dynamodb-local
+    image: "amazon/dynamodb-local:latest"
+    working_dir: /home/dynamodblocal
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    ports:
+      - "8000:8000"
