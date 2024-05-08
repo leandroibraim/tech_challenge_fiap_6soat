@@ -6,7 +6,39 @@ services:
       context: .
       dockerfile: Dockerfile
     image: tech-challenge:1
-    container_name: tech-challenge
+    container_name: tech-challenge-app
     restart: on-failure
     ports:
       - "8080:8080"
+    depends_on:
+      dynamodb:
+        condition: service_healthy
+    networks:
+      - tech-challenge-network
+
+  dynamodb:
+    container_name: dynamodb
+    image: "amazon/dynamodb-local:latest"
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    ports:
+      - "8000:8000"
+    environment:
+      AWS_REGION: "sa-east-1"
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local
+    volumes:
+      - ./data:/home/dynamodblocal/data
+    working_dir: /home/dynamodblocal
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -v http://dynamodb:8000" ]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    networks:
+      - tech-challenge-network
+
+networks:
+  tech-challenge-network:
+    driver: bridge
+
