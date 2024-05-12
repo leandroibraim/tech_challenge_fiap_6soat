@@ -1,17 +1,15 @@
 package com.example.demo.adapter.outbound.repository;
 
 import com.example.demo.core.domain.Pedido;
-import com.example.demo.core.ports.outbound.pedido.ListarPedidoPort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class ListarPedidoAdapter implements ListarPedidoPort {
+@Service
+public class ListarPedidoAdapter{
 
 
-    @Override
     public List<Pedido> execute() {
-
-
 
         return List.of();
     }
