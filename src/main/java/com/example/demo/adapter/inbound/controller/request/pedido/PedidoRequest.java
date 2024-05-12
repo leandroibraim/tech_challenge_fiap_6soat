@@ -1,24 +1,17 @@
 package com.example.demo.adapter.inbound.controller.request.pedido;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PedidoRequest {
 
     private Long produtoId;
     private Integer quantidade;
 
-    public PedidoRequest() {
-    }
-
-    public PedidoRequest(Long produtoId, Integer quantidade) {
-        this.produtoId = produtoId;
-        this.quantidade = quantidade;
-    }
-
-    public boolean isValid() {
-        return produtoId != null && quantidade != null;
-    }
 }

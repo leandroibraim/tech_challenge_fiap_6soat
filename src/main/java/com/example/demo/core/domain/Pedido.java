@@ -5,64 +5,67 @@ import java.util.List;
 
 public class Pedido {
 
-    private Long id;
-    private Long clienteId;
-    private List<ItemPedido> itensPedido;
-    private LocalDateTime dataDeCriacao;
-    private String totalPedido;
+    private Long numeroPedido;
+    private Cliente cliente;
+    private LocalDateTime dataPedido;
+    private String valor;
+    private List<ItemPedido> composicao;
+    private String status;
 
-    public Pedido(Long clienteId, List<ItemPedido> itensPedido) {
-        this.clienteId = clienteId;
-        this.itensPedido = itensPedido;
+    public Pedido(Long numeroPedido, Cliente cliente, LocalDateTime dataPedido, String valor, List<ItemPedido> composicao, String status) {
+        this.numeroPedido = numeroPedido;
+        this.cliente = cliente;
+        this.dataPedido = dataPedido;
+        this.valor = valor;
+        this.composicao = composicao;
+        this.status = status;
     }
 
-    public Pedido(Long id, Long clienteId, List<ItemPedido> itensPedido, LocalDateTime dataDeCriacao, String totalPedido) {
-        this.id = id;
-        this.clienteId = clienteId;
-        this.itensPedido = itensPedido;
-        this.dataDeCriacao = dataDeCriacao;
-        this.totalPedido = totalPedido;
+    public String getValor() {
+        return valor;
     }
 
-    public Long getId() {
-        return id;
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getNumeroPedido() {
+        return numeroPedido;
     }
 
-    public Long getClienteId() {
-        return clienteId;
+    public void setNumeroPedido(Long numeroPedido) {
+        this.numeroPedido = numeroPedido;
     }
 
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public List<ItemPedido> getItensPedido() {
-        return itensPedido;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public void setItensPedido(List<ItemPedido> itensPedido) {
-        this.itensPedido = itensPedido;
+    public LocalDateTime getDataPedido() {
+        return dataPedido;
     }
 
-    public LocalDateTime getDataDeCriacao() {
-        return dataDeCriacao;
+    public void setDataPedido(LocalDateTime dataPedido) {
+        this.dataPedido = dataPedido;
     }
 
-    public void setDataDeCriacao(LocalDateTime dataDeCriacao) {
-        this.dataDeCriacao = dataDeCriacao;
+    public List<ItemPedido> getComposicao() {
+        return composicao;
     }
 
-    public String getTotalPedido() {
-        return totalPedido;
+    public void setComposicao(List<ItemPedido> composicao) {
+        this.composicao = composicao;
     }
 
-    public void setTotalPedido(String totalPedido) {
-        this.totalPedido = totalPedido;
+    public String getStatus() {
+        return status;
     }
 
-
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -3,30 +3,27 @@ package com.example.demo.core.domain;
 
 public class ItemPedido {
 
-    private Long produtoId;
-    private int quantidade;
+    private String nome;
+    private String categoria;
 
-    // Construtor
-    public ItemPedido(Long produtoId, int quantidade) {
-        this.produtoId = produtoId;
-        this.quantidade = quantidade;
+    public ItemPedido(String nome, String categoria) {
+        this.nome = nome;
+        this.categoria = categoria;
     }
 
-    // Getters e Setters
-    public Long getProdutoId() {
-        return produtoId;
+    public String getNome() {
+        return nome;
     }
 
-    public void setProdutoId(Long produtoId) {
-        this.produtoId = produtoId;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
-
 }
