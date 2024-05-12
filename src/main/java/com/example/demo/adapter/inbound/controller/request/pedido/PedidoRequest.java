@@ -1,4 +1,4 @@
-package com.example.demo.adapter.inbound.controller.request;
+package com.example.demo.adapter.inbound.controller.request.pedido;
 
 import lombok.Getter;
 import lombok.Setter;

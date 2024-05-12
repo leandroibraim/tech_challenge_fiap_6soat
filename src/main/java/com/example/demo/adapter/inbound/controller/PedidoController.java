@@ -1,9 +1,8 @@
 package com.example.demo.adapter.inbound.controller;
 
 import com.example.demo.adapter.inbound.controller.response.pedido.PedidoResponse;
-import com.example.demo.core.ports.inbound.pedido.ListaPedidosUseCasePort;
+import com.example.demo.core.usecase.ListaPedidosUseCase;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,18 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Validated
-@RequestMapping("/api/pedidos")
+@RequestMapping("/pedidos")
 public class PedidoController {
 
-    private final ListaPedidosUseCasePort listaPedidosUseCasePort;
+    private final ListaPedidosUseCase listaPedidosUseCase;
 
-    public PedidoController(ListaPedidosUseCasePort listaPedidosUseCasePort) {
-        this.listaPedidosUseCasePort = listaPedidosUseCasePort;
+    public PedidoController(ListaPedidosUseCase listaPedidosUseCasePort) {
+        this.listaPedidosUseCase = listaPedidosUseCasePort;
     }
 
-    @GetMapping("/lista")
-    public ResponseEntity<List<PedidoResponse>> listarPedidos() {
-        return ResponseEntity.ok(PedidoResponse.fromDomain(listaPedidosUseCasePort.execute()));
+    @GetMapping("")
+    public ResponseEntity<List<PedidoResponse>> listaPedidos() {
+        return ResponseEntity.ok().build();
     }
 }

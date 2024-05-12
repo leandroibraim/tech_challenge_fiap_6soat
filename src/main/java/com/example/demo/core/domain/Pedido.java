@@ -2,7 +2,6 @@ package com.example.demo.core.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 public class Pedido {
 
@@ -65,31 +64,5 @@ public class Pedido {
         this.totalPedido = totalPedido;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pedido pedido = (Pedido) o;
-        return Objects.equals(id, pedido.id) &&
-                Objects.equals(clienteId, pedido.clienteId) &&
-                Objects.equals(itensPedido, pedido.itensPedido) &&
-                Objects.equals(dataDeCriacao, pedido.dataDeCriacao) &&
-                Objects.equals(totalPedido, pedido.totalPedido);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, clienteId, itensPedido, dataDeCriacao, totalPedido);
-    }
-
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "id=" + id +
-                ", clienteId=" + clienteId +
-                ", itensPedido=" + itensPedido +
-                ", dataDeCriacao=" + dataDeCriacao +
-                ", totalPedido='" + totalPedido + '\'' +
-                '}';
-    }
 }
