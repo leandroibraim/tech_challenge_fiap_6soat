@@ -10,9 +10,6 @@ public class PedidoRequest {
     private Long produtoId;
     private Integer quantidade;
 
-    public PedidoRequest() {
-    }
-
     public PedidoRequest(Long produtoId, Integer quantidade) {
         this.produtoId = produtoId;
         this.quantidade = quantidade;

@@ -1,17 +1,15 @@
 package com.example.demo.adapter.inbound.controller;
 
+import com.example.demo.adapter.inbound.controller.request.PedidoRequest;
 import com.example.demo.adapter.inbound.controller.response.pedido.PedidoResponse;
 import com.example.demo.core.ports.inbound.pedido.ListaPedidosUseCasePort;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@Validated
 @RequestMapping("/api/pedidos")
 public class PedidoController {
 
@@ -22,7 +20,16 @@ public class PedidoController {
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<List<PedidoResponse>> listarPedidos() {
+    public ResponseEntity<List<PedidoResponse>> listarTodosPedidos() {
         return ResponseEntity.ok(PedidoResponse.fromDomain(listaPedidosUseCasePort.execute()));
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> criarPedido(@Valid @RequestBody PedidoRequest pedidoRequest) {
+        if (pedidoRequest.isValid()) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

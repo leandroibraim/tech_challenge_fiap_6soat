@@ -2,14 +2,16 @@ package com.example.demo.adapter.inbound.controller.response.pedido;
 
 import com.example.demo.core.domain.Produto;
 
+import java.math.BigDecimal;
+
 public class ProdutoResponse {
 
     private Long id;
     private String nome;
     private String descricao;
-    private String valor;
+    private BigDecimal valor;
 
-    public ProdutoResponse(Long id, String nome, String descricao, String valor) {
+    public ProdutoResponse(Long id, String nome, String descricao, BigDecimal valor) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -21,7 +23,7 @@ public class ProdutoResponse {
                 produto.getId(),
                 produto.getNome(),
                 produto.getDescricao(),
-                produto.getValor().toString()
+                produto.getValor()
         );
     }
 }
