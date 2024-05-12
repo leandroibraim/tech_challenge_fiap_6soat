@@ -1,7 +1,6 @@
 package com.example.demo.adapter.inbound.controller;
 
 import com.example.demo.adapter.inbound.controller.request.ProdutoRequest;
-import com.example.demo.adapter.inbound.controller.response.pedido.ProdutoCategoriaResponse;
 import com.example.demo.adapter.inbound.controller.response.pedido.ProdutoResponse;
 import com.example.demo.core.ports.inbound.produto.*;
 import jakarta.validation.Valid;
@@ -51,8 +50,4 @@ public class ProdutoController {
         return ResponseEntity.ok(ProdutoResponse.fromDomain(recuperaProdutoUseCasePort.execute(produtoId)));
     }
 
-    @GetMapping("/categoria/{categoriaId}")
-    public ResponseEntity<ProdutoCategoriaResponse> recuperarProdutosPorCategoriaId(@PathVariable Long categoriaId) {
-        return ResponseEntity.ok(ProdutoCategoriaResponse.fromDomain(recuperaProdutoPorCategoriaUseCasePort.execute(categoriaId)));
-    }
 }
