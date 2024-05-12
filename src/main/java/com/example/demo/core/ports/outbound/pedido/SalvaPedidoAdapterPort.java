@@ -1,4 +1,4 @@
-package com.example.demo.core.ports.inbound.pedido;
+package com.example.demo.core.ports.outbound.pedido;
 
 import com.example.demo.core.domain.Pedido;
 

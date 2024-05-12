@@ -9,17 +9,16 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@AllArgsConstructor
 public class PedidoRepository {
 
-    @Autowired
-    private DynamoDBMapper dynamoDBMapper;
+    private final DynamoDBMapper dynamoDBMapper;
 
-    private List<PedidoEntity> listarProduto(){
+    public PedidoRepository(DynamoDBMapper dynamoDBMapper) {
+        this.dynamoDBMapper = dynamoDBMapper;
+    }
 
-        //dynamoDBMapper.load(PedidoEntity.class, );
-
-        return List.of();
+    public List<PedidoEntity> listarProduto(){
+        return List.of(dynamoDBMapper.load(PedidoEntity.class, ""));
     }
 
 
