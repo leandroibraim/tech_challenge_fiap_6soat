@@ -21,7 +21,7 @@ public class PedidoController {
 
 
     @GetMapping
-    public ResponseEntity<List<PedidoResponse>> listaPedidos() {
+    public ResponseEntity<List<PedidoResponse>> listarPedidos() {
         final var result = listarPedidosUseCasePort.execute();
 
         return ResponseEntity.ok().build();
