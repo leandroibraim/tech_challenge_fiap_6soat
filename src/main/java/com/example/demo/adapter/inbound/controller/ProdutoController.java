@@ -10,23 +10,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/produtos")
 public class ProdutoController {
-
     private final CriaProdutoUseCasePort criaProdutoUseCasePort;
     private final RecuperaProdutoUseCasePort recuperaProdutoUseCasePort;
     private final AtualizaProdutoUseCasePort atualizaProdutoUseCasePort;
     private final DeletaProdutoUseCasePort deletaProdutoUseCasePort;
-    private final RecuperaProdutoPorCategoriaUseCasePort recuperaProdutoPorCategoriaUseCasePort;
 
     public ProdutoController(CriaProdutoUseCasePort criaProdutoUseCasePort,
                              RecuperaProdutoUseCasePort recuperaProdutoUseCasePort,
                              AtualizaProdutoUseCasePort atualizaProdutoUseCasePort,
-                             DeletaProdutoUseCasePort deletaProdutoUseCasePort,
-                             RecuperaProdutoPorCategoriaUseCasePort recuperaProdutoPorCategoriaUseCasePort) {
+                             DeletaProdutoUseCasePort deletaProdutoUseCasePort) {
         this.criaProdutoUseCasePort = criaProdutoUseCasePort;
         this.recuperaProdutoUseCasePort = recuperaProdutoUseCasePort;
         this.atualizaProdutoUseCasePort = atualizaProdutoUseCasePort;
         this.deletaProdutoUseCasePort = deletaProdutoUseCasePort;
-        this.recuperaProdutoPorCategoriaUseCasePort = recuperaProdutoPorCategoriaUseCasePort;
     }
 
     @PostMapping

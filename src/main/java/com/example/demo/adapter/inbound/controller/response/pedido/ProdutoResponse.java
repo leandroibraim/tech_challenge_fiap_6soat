@@ -5,7 +5,6 @@ import com.example.demo.core.domain.Produto;
 import java.math.BigDecimal;
 
 public class ProdutoResponse {
-
     private Long id;
     private String nome;
     private String descricao;
