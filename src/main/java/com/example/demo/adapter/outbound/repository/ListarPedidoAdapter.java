@@ -5,6 +5,7 @@ import com.example.demo.core.ports.outbound.pedido.ListarPedidosAdapterPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -19,7 +20,8 @@ public class ListarPedidoAdapter implements ListarPedidosAdapterPort {
 
     @Override
     public List<Pedido> listarTodosPedidos() {
-        final var result = repository.listarPedidos();
-        return PedidoMapper.INSTANCE.mapFrom(result);
+        final var result = repository.listarPedidosPorStatus("", LocalDateTime.now());
+        //return PedidoMapper.INSTANCE.mapFrom(result);
+        return List.of();
     }
 }

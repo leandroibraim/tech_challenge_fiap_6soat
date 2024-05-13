@@ -4,44 +4,27 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
+
+@Getter
+@Setter
 @DynamoDBTable(tableName = "pedido")
 public class PedidoEntity {
 
-
+    @DynamoDBHashKey(attributeName = "numero_pedido")
     private String numeroPedido;
 
-
+    @DynamoDBRangeKey(attributeName = "data_pedido")
     private String dataPedido;
 
+    @DynamoDBAttribute(attributeName = "status")
     private String status;
 
-    @DynamoDBHashKey(attributeName = "numero_pedido")
-    public String getNumeroPedido() {
-        return numeroPedido;
-    }
+    @DynamoDBAttribute(attributeName = "composicao")
+    private List<ComposicaoEntity> composicaoEntity;
 
-    public void setNumeroPedido(String numeroPedido) {
-        this.numeroPedido = numeroPedido;
-    }
-
-    @DynamoDBAttribute(attributeName = "status")
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    @DynamoDBRangeKey(attributeName = "data_pedido")
-    public String getDataPedido() {
-        return dataPedido;
-    }
-
-    public void setDataPedido(String dataPedido) {
-        this.dataPedido = dataPedido;
-    }
 }

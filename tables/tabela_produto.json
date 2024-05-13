@@ -1,15 +1,31 @@
 {
   "TableName": "pedidos",
   "KeySchema": [
-    { "AttributeName": "numero_pedido", "KeyType": "HASH" },
-    { "AttributeName": "data_pedido", "KeyType": "RANGE" }
+    { "AttributeName": "numero_pedido", "KeyType": "HASH" }
   ],
   "AttributeDefinitions": [
-    { "AttributeName": "numero_pedido", "AttributeType": "S" },
-    { "AttributeName": "data_pedido", "AttributeType": "S" }
+    { "AttributeName": "numero_pedido", "AttributeType": "S" }
   ],
   "ProvisionedThroughput": {
     "ReadCapacityUnits": 10,
     "WriteCapacityUnits": 5
-  }
+  },
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "gsi_status",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "status",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "data_pedido",
+          "AttributeType": "S"
+        }
+      },
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ]
 }
