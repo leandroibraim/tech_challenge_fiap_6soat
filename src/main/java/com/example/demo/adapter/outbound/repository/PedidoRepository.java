@@ -15,12 +15,9 @@ public class PedidoRepository {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-    public List<PedidoEntity> listarProduto(){
-        return List.of(dynamoDBMapper.load(PedidoEntity.class, ""));
+    public List<PedidoEntity> listarPedidos(){
+        dynamoDBMapper.load(PedidoEntity.class);
+        return List.of();
     }
-
-
-
-
 
 }

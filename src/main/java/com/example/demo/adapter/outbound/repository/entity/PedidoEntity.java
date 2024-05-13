@@ -24,5 +24,4 @@ public class PedidoEntity {
     @DynamoDBAttribute(attributeName = "data_pedido")
     private LocalDateTime dataPedido;
 
-
 }
