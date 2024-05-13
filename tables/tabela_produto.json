@@ -1,0 +1,15 @@
+{
+  "TableName": "pedidos",
+  "KeySchema": [
+    { "AttributeName": "numero_pedido", "KeyType": "HASH" },
+    { "AttributeName": "data_pedido", "KeyType": "RANGE" }
+  ],
+  "AttributeDefinitions": [
+    { "AttributeName": "numero_pedido", "AttributeType": "S" },
+    { "AttributeName": "data_pedido", "AttributeType": "S" }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 10,
+    "WriteCapacityUnits": 5
+  }
+}

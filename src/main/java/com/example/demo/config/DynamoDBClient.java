@@ -28,5 +28,4 @@ public class DynamoDBClient {
 
     return new DynamoDBMapper(client, DynamoDBMapperConfig.DEFAULT);
     }
-
 }
