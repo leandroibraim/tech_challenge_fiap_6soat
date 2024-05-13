@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @DynamoDBTable(tableName = "ProductInfo")
 public class PedidoEntity {
 
-
     @DynamoDBHashKey(attributeName = "numero_pedido")
     private String numeroPedido;
 
