@@ -8,9 +8,9 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface PedidoMapper {
+public interface PedidoEntityMapper {
 
-    PedidoMapper INSTANCE = Mappers.getMapper(PedidoMapper.class);
+    PedidoEntityMapper INSTANCE = Mappers.getMapper(PedidoEntityMapper.class);
 
     Pedido mapFrom(PedidoEntity source);
 

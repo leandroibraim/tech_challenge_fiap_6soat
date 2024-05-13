@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.example.demo.adapter.outbound.repository.entity.PedidoEntity;
+import com.example.demo.core.domain.Pedido;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -36,6 +37,12 @@ public class PedidoRepository {
 
         dynamoDBMapper.load(PedidoEntity.class);
         return List.of();
+    }
+
+    public boolean salvarPedido(Pedido pedido){
+
+
+        return true;
     }
 
 }
