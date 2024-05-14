@@ -4,13 +4,17 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.Condition;
 import com.example.demo.adapter.outbound.repository.entity.PedidoEntity;
+import com.example.demo.adapter.outbound.repository.mapper.PedidoEntityMapper;
 import com.example.demo.core.domain.Pedido;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class PedidoRepository {
@@ -21,28 +25,25 @@ public class PedidoRepository {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-    public List<PedidoEntity> listarPedidosPorStatus(final String status, final LocalDateTime localDateTime){
+    public List<PedidoEntity> listarPedidosPorStatus(final String status, final LocalDate localDate){
         final HashMap<String, AttributeValue> mapAttr = new HashMap<>();
 
-        mapAttr.put(":status", new AttributeValue().withS("status"));
-        mapAttr.put(":data", new AttributeValue().withS(""));
+        mapAttr.put(":status_pedido", new AttributeValue().withS(status));
+        mapAttr.put(":data_pedido", new AttributeValue().withS(localDate.toString()));
 
         final DynamoDBQueryExpression<PedidoEntity> queryExpression = new DynamoDBQueryExpression<PedidoEntity>()
-                .withIndexName("gsi_status")
-                .withKeyConditionExpression("status = :status and data_pedido = :data_pedido")
-                .withExpressionAttributeValues(mapAttr);
+                .withIndexName("gsi_status_pedido")
+                .withKeyConditionExpression("status_pedido = :status_pedido and data_pedido = :data_pedido")
+                .withExpressionAttributeValues(mapAttr)
+                .withConsistentRead(false);
 
         final PaginatedQueryList<PedidoEntity> queryList = dynamoDBMapper.query(PedidoEntity.class, queryExpression);
 
-
-        dynamoDBMapper.load(PedidoEntity.class);
-        return List.of();
+        return queryList.stream().toList();
     }
 
-    public boolean salvarPedido(Pedido pedido){
-
-
-        return true;
+    public void salvarPedido(Pedido pedido){
+        dynamoDBMapper.save(PedidoEntityMapper.INSTANCE.mapFrom(pedido));
     }
 
 }

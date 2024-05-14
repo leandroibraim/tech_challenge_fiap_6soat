@@ -39,7 +39,7 @@ services:
       - tech-challenge-network
 
   dynamodb_migrator:
-    image: banst/awscli:1.18.76
+    image: banst/awscli:latest
     container_name: app-dynamodb_migrator
     working_dir: /home/dynamodblocal
     command: dynamodb create-table --cli-input-json file://tabela_produto.json --endpoint-url http://dynamodb:8000

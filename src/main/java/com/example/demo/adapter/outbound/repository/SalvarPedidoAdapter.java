@@ -5,8 +5,6 @@ import com.example.demo.core.ports.outbound.pedido.SalvarPedidoAdapterPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 @Component
 public class SalvarPedidoAdapter implements SalvarPedidoAdapterPort {
 
@@ -18,9 +16,7 @@ public class SalvarPedidoAdapter implements SalvarPedidoAdapterPort {
     }
 
     @Override
-    public boolean execute(Pedido pedido) {
-        final var result = repository.listarPedidosPorStatus("", LocalDateTime.now());
-        //return PedidoMapper.INSTANCE.mapFrom(result);
-        return Boolean.TRUE;
+    public void execute(Pedido pedido) {
+        repository.salvarPedido(pedido);
     }
 }

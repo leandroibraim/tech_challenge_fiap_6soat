@@ -9,7 +9,6 @@ import lombok.Setter;
 @DynamoDBDocument
 public class ComposicaoEntity {
 
-
     @DynamoDBAttribute(attributeName = "categoria")
     private String categoria;
 

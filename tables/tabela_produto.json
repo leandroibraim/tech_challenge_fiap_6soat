@@ -1,31 +1,70 @@
 {
-  "TableName": "pedidos",
+  "TableName": "tb_pedidos",
   "KeySchema": [
-    { "AttributeName": "numero_pedido", "KeyType": "HASH" }
+    {
+      "AttributeName": "hash_pedido",
+      "KeyType": "HASH"
+    }
   ],
   "AttributeDefinitions": [
-    { "AttributeName": "numero_pedido", "AttributeType": "S" }
+    {
+      "AttributeName": "hash_pedido",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "status_pedido",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "data_pedido",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "numero_pedido",
+      "AttributeType": "S"
+    }
   ],
-  "ProvisionedThroughput": {
-    "ReadCapacityUnits": 10,
-    "WriteCapacityUnits": 5
-  },
   "GlobalSecondaryIndexes": [
     {
-      "IndexName": "gsi_status",
-      "KeyAttributes": {
-        "PartitionKey": {
-          "AttributeName": "status",
-          "AttributeType": "S"
+      "IndexName": "gsi_status_pedido",
+      "KeySchema": [
+        {
+          "AttributeName": "status_pedido",
+          "KeyType": "HASH"
         },
-        "SortKey": {
+        {
           "AttributeName": "data_pedido",
-          "AttributeType": "S"
+          "KeyType": "RANGE"
         }
-      },
+      ],
       "Projection": {
         "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+    },
+    {
+      "IndexName": "gsi_numero_pedido",
+      "KeySchema": [
+        {
+          "AttributeName": "numero_pedido",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
       }
     }
-  ]
+  ],
+  "BillingMode": "PROVISIONED",
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
 }

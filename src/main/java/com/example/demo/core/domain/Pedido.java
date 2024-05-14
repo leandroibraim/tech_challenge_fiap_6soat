@@ -1,39 +1,27 @@
 package com.example.demo.core.domain;
 
-import java.time.LocalDateTime;
-import java.util.List;
 
 public class Pedido {
 
-    private Long numeroPedido;
+    private String numeroPedido;
     private Cliente cliente;
-    private LocalDateTime dataPedido;
-    private String valor;
-    private List<ItemPedido> composicao;
+    private String valorTotal;
+    private Composicao composicao;
     private String status;
 
-    public Pedido(Long numeroPedido, Cliente cliente, LocalDateTime dataPedido, String valor, List<ItemPedido> composicao, String status) {
+    public Pedido(String numeroPedido, Cliente cliente, String valorTotal, Composicao composicao, String status) {
         this.numeroPedido = numeroPedido;
         this.cliente = cliente;
-        this.dataPedido = dataPedido;
-        this.valor = valor;
+        this.valorTotal = valorTotal;
         this.composicao = composicao;
         this.status = status;
     }
 
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
-
-    public Long getNumeroPedido() {
+    public String getNumeroPedido() {
         return numeroPedido;
     }
 
-    public void setNumeroPedido(Long numeroPedido) {
+    public void setNumeroPedido(String numeroPedido) {
         this.numeroPedido = numeroPedido;
     }
 
@@ -45,19 +33,19 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public LocalDateTime getDataPedido() {
-        return dataPedido;
+    public String getValorTotal() {
+        return valorTotal;
     }
 
-    public void setDataPedido(LocalDateTime dataPedido) {
-        this.dataPedido = dataPedido;
+    public void setValorTotal(String valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
-    public List<ItemPedido> getComposicao() {
+    public Composicao getComposicao() {
         return composicao;
     }
 
-    public void setComposicao(List<ItemPedido> composicao) {
+    public void setComposicao(Composicao composicao) {
         this.composicao = composicao;
     }
 

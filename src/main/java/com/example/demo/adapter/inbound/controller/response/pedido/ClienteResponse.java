@@ -5,12 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProdutoResponse {
+public class ClienteResponse {
 
     private String nome;
-    private String descricao;
-    private String valor;
-    private String categoria;
-    private String quantidade;
+    private String documento;
 
 }

@@ -1,20 +1,16 @@
 package com.example.demo.adapter.inbound.controller.response.pedido;
 
-import com.example.demo.adapter.inbound.controller.response.ClienteResponse;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
 public class PedidoResponse {
 
+    private String numeroPedido;
     private ClienteResponse cliente;
-    private List<ItemPedidoResponse> composicao;
-    private String valor;
+    private ComposicaoResponse composicao;
+    private String valorTotal;
     private String status;
 
 }

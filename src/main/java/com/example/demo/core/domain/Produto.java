@@ -1,15 +1,12 @@
 package com.example.demo.core.domain;
 
 
-public class ItemPedido {
+public class Produto {
 
     private String nome;
     private String categoria;
-
-    public ItemPedido(String nome, String categoria) {
-        this.nome = nome;
-        this.categoria = categoria;
-    }
+    private String valor;
+    private String quantidade;
 
     public String getNome() {
         return nome;
@@ -25,5 +22,21 @@ public class ItemPedido {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
     }
 }
