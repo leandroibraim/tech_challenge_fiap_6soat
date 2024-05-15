@@ -1,0 +1,70 @@
+{
+  "TableName": "tb_pedidos",
+  "KeySchema": [
+    {
+      "AttributeName": "hash_pedido",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "hash_pedido",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "status_pedido",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "data_pedido",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "numero_pedido",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "gsi_status_pedido",
+      "KeySchema": [
+        {
+          "AttributeName": "status_pedido",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "data_pedido",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+    },
+    {
+      "IndexName": "gsi_numero_pedido",
+      "KeySchema": [
+        {
+          "AttributeName": "numero_pedido",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+    }
+  ],
+  "BillingMode": "PROVISIONED",
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}
