@@ -1,25 +1,17 @@
 package com.example.demo.core.domain;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import lombok.Builder;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@Builder
-@DynamoDBTable(tableName = "Clientes")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Cliente {
 
-    @DynamoDBHashKey(attributeName = "cpf_cliente")
-    private String cpf;
-
-    @DynamoDBAttribute(attributeName = "nome_cliente")
     private String nome;
+    private String documento;
 
-    @DynamoDBAttribute(attributeName = "email_cliente")
-    private String email;
-
-    @DynamoDBAttribute(attributeName = "telefone_cliente")
-    private String telefone;
 }
