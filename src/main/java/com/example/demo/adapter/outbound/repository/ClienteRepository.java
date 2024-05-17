@@ -2,7 +2,6 @@ package com.example.demo.adapter.outbound.repository;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.example.demo.adapter.outbound.repository.entity.ClienteEntity;
-import com.example.demo.adapter.outbound.repository.mapper.ClienteEntityMapper;
 import com.example.demo.core.domain.Cliente;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
