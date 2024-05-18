@@ -1,27 +1,29 @@
 package com.example.demo.core.domain;
 
+import java.util.List;
 
 public class Pedido {
 
-    private String numeroPedido;
+    private Long numeroPedido;
     private Cliente cliente;
-    private String valorTotal;
-    private Composicao composicao;
+    private Double valorTotal;
+    private List<Composicao> composicao;
     private String status;
+    private String etapa;
 
-    public Pedido(String numeroPedido, Cliente cliente, String valorTotal, Composicao composicao, String status) {
-        this.numeroPedido = numeroPedido;
-        this.cliente = cliente;
-        this.valorTotal = valorTotal;
-        this.composicao = composicao;
-        this.status = status;
+    public Double getValorTotal() {
+        return valorTotal;
     }
 
-    public String getNumeroPedido() {
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Long getNumeroPedido() {
         return numeroPedido;
     }
 
-    public void setNumeroPedido(String numeroPedido) {
+    public void setNumeroPedido(Long numeroPedido) {
         this.numeroPedido = numeroPedido;
     }
 
@@ -33,19 +35,11 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public String getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(String valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public Composicao getComposicao() {
+    public List<Composicao> getComposicao() {
         return composicao;
     }
 
-    public void setComposicao(Composicao composicao) {
+    public void setComposicao(List<Composicao> composicao) {
         this.composicao = composicao;
     }
 
@@ -55,5 +49,13 @@ public class Pedido {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getEtapa() {
+        return etapa;
+    }
+
+    public void setEtapa(String etapa) {
+        this.etapa = etapa;
     }
 }

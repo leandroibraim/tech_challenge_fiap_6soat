@@ -5,10 +5,13 @@ import com.example.demo.core.ports.inbound.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.ports.outbound.cliente.IncluirClienteAdapterPort;
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 public class IncluirClienteUseCase implements IncluirClienteUseCasePort {
 
     private final IncluirClienteAdapterPort incluirClienteAdapterPort;
+
+    public IncluirClienteUseCase(IncluirClienteAdapterPort incluirClienteAdapterPort) {
+        this.incluirClienteAdapterPort = incluirClienteAdapterPort;
+    }
 
     @Override
     public void execute(Cliente cliente) {

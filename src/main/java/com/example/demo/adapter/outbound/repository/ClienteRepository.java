@@ -1,23 +1,9 @@
 package com.example.demo.adapter.outbound.repository;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.example.demo.adapter.outbound.repository.entity.ClienteEntity;
-import com.example.demo.core.domain.Cliente;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@AllArgsConstructor
-@Repository
-public class ClienteRepository {
+public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
 
-    private final DynamoDBMapper dynamoDBMapper;
-
-    public void incluir(Cliente cliente) {
-        dynamoDBMapper.save(ClienteEntityMapper.INSTANCE.mapFrom(cliente));
-    }
-
-    public Cliente recuperar(String documentoCliente) {
-        ClienteEntity entity = dynamoDBMapper.load(ClienteEntity.class, documentoCliente);
-        return ClienteEntityMapper.INSTANCE.mapFrom(entity);
-    }
+    ClienteEntity findByCpf(String cpf);
 }

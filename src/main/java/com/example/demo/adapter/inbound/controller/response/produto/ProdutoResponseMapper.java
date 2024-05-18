@@ -1,6 +1,5 @@
-package com.example.demo.adapter.inbound.controller.response.pedido.mapper;
+package com.example.demo.adapter.inbound.controller.response.produto;
 
-import com.example.demo.adapter.inbound.controller.response.produto.ProdutoResponse;
 import com.example.demo.core.domain.Produto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -14,7 +13,4 @@ public interface ProdutoResponseMapper {
 
     ProdutoResponse mapFrom(Produto produto);
     List<ProdutoResponse> mapFrom(List<Produto> produto);
-
-
-
 }

@@ -1,13 +1,11 @@
-package com.example.demo.core.domain;
+package com.example.demo.adapter.inbound.controller.response.produto;
 
+public class ProdutoResponse {
 
-public class Produto {
-
+    private Long idProduto;
     private String nome;
-    private Long quantidade;
     private String categoria;
     private Double valor;
-    private Long idProduto;
 
     public String getNome() {
         return nome;
@@ -15,14 +13,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Long getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Long quantidade) {
-        this.quantidade = quantidade;
     }
 
     public String getCategoria() {

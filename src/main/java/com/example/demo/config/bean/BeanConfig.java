@@ -4,14 +4,13 @@ import com.example.demo.core.ports.inbound.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.ports.inbound.cliente.RecuperarClienteUseCasePort;
 import com.example.demo.core.ports.inbound.pedido.ListarPedidosUseCasePort;
 import com.example.demo.core.ports.inbound.pedido.SalvarPedidoUseCasePort;
+import com.example.demo.core.ports.inbound.produto.GerenciarProdutoUseCasePort;
 import com.example.demo.core.ports.outbound.cliente.IncluirClienteAdapterPort;
 import com.example.demo.core.ports.outbound.cliente.RecuperarClienteAdapterPort;
 import com.example.demo.core.ports.outbound.pedido.ListarPedidosAdapterPort;
 import com.example.demo.core.ports.outbound.pedido.SalvarPedidoAdapterPort;
-import com.example.demo.core.usecase.IncluirClienteUseCase;
-import com.example.demo.core.usecase.ListarPedidosUseCase;
-import com.example.demo.core.usecase.RecuperarClienteUseCase;
-import com.example.demo.core.usecase.SalvarPedidoUseCase;
+import com.example.demo.core.ports.outbound.produto.GerenciarProdutoAdapterPort;
+import com.example.demo.core.usecase.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,7 +33,12 @@ public class BeanConfig {
     }
 
     @Bean
-    public SalvarPedidoUseCasePort salvarPedidoUseCasePort(SalvarPedidoAdapterPort salvarPedidoAdapterPort) {
-        return new SalvarPedidoUseCase(salvarPedidoAdapterPort);
+    public SalvarPedidoUseCasePort salvarPedidoUseCasePort(SalvarPedidoAdapterPort salvarPedidoAdapterPort, GerenciarProdutoAdapterPort gerenciarProdutoAdapterPort) {
+        return new SalvarPedidoUseCase(salvarPedidoAdapterPort, gerenciarProdutoAdapterPort);
+    }
+
+    @Bean
+    public GerenciarProdutoUseCasePort incluirProdutoUseCasePort(GerenciarProdutoAdapterPort gerenciarProdutoAdapterPort){
+        return new GerenciarProdutoUseCase(gerenciarProdutoAdapterPort);
     }
 }

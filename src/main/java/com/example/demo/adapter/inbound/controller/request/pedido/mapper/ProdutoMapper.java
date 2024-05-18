@@ -1,6 +1,6 @@
 package com.example.demo.adapter.inbound.controller.request.pedido.mapper;
 
-import com.example.demo.adapter.inbound.controller.request.pedido.ProdutoRequest;
+import com.example.demo.adapter.inbound.controller.request.produto.ProdutoRequest;
 import com.example.demo.core.domain.Produto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
