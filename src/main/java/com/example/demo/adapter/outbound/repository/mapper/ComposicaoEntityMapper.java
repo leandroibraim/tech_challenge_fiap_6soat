@@ -13,6 +13,9 @@ public interface ComposicaoEntityMapper {
     ComposicaoEntityMapper INSTANCE = Mappers.getMapper(ComposicaoEntityMapper.class);
 
     ComposicaoEntity mapFrom(Composicao composicao);
-    List<ComposicaoEntity> mapFrom(List<Composicao> composicao);
+    List<ComposicaoEntity> mapFroms(List<Composicao> composicao);
+
+    Composicao mapFrom(ComposicaoEntity composicaoEntity);
+    List<Composicao> mapFrom(List<ComposicaoEntity> composicaoEntity);
 
 }

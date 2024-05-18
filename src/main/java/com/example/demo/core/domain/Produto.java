@@ -4,7 +4,7 @@ package com.example.demo.core.domain;
 public class Produto {
 
     private String nome;
-    private String quantidade;
+    private Long quantidade;
     private String categoria;
     private Double valor;
     private Long idProduto;
@@ -17,11 +17,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getQuantidade() {
+    public Long getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(Long quantidade) {
         this.quantidade = quantidade;
     }
 

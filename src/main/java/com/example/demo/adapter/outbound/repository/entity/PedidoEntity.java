@@ -6,14 +6,15 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
-@Table(name = "tb_pedido")
 @Getter
 @Setter
+@Entity
+@Table(name = "tb_pedido")
 public class PedidoEntity {
 
     @Id
     @Column(name = "numero_pedido")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numeroPedido;
 
     @Column(name = "data_pedido")
@@ -22,12 +23,6 @@ public class PedidoEntity {
     @Column(name = "valor_total")
     private Double valorTotal;
 
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "cpf")
-    private String cpf;
-
     @Column(name = "etapa")
     private String etapa;
 
@@ -35,7 +30,7 @@ public class PedidoEntity {
     @JoinColumn(name = "id_cliente")
     private ClienteEntity cliente;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ComposicaoEntity> composicao;
 
 

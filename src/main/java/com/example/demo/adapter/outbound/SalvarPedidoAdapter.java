@@ -19,8 +19,6 @@ public class SalvarPedidoAdapter implements SalvarPedidoAdapterPort {
 
     @Override
     public void execute(Pedido pedido) {
-
-
        repository.save(PedidoEntityMapper.INSTANCE.mapFrom(pedido));
     }
 }

@@ -15,5 +15,6 @@ public class Pedido {
     private Double valorTotal;
     private List<Composicao> composicao;
     private String status;
+    private String etapa;
 
 }

@@ -11,8 +11,12 @@ import lombok.Setter;
 public class ComposicaoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_composicao")
     private Long idComposicao;
+
+    @Column(name = "id_produto")
+    private Long idProduto;
 
     @Column(name = "quantidade")
     private int quantidade;

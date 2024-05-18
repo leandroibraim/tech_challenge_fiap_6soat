@@ -1,5 +1,6 @@
 package com.example.demo.core.usecase;
 
+import com.example.demo.core.domain.Composicao;
 import com.example.demo.core.domain.Pedido;
 import com.example.demo.core.domain.Produto;
 import com.example.demo.core.ports.inbound.pedido.SalvarPedidoUseCasePort;
@@ -26,17 +27,19 @@ public class SalvarPedidoUseCase implements SalvarPedidoUseCasePort {
         List<Produto> listProduto = new ArrayList<>();
 
         pedido.getComposicao().forEach(item -> {
-            listProduto.add(
-                    gerenciarProdutoAdapterPort.buscarProdutoPorId(item.getIdProduto()));
+            var auxProduto = gerenciarProdutoAdapterPort.buscarProdutoPorId(item.getIdProduto());
+            item.setPrecoUnitario(auxProduto.getValor());
+            item.setIdProduto(auxProduto.getIdProduto());
         });
 
-        var valorTotal = 0.0;
+        double valorTotal = 0.0;
 
-        for(Produto produto : listProduto){
-            valorTotal += produto.getValor();
+        for(Composicao composicao : pedido.getComposicao()){
+            valorTotal += composicao.getQuantidade() * composicao.getPrecoUnitario();
         }
 
         pedido.setValorTotal(valorTotal);
+        pedido.setEtapa("RECEBIDO");
 
         salvarPedidoAdapterPort.execute(pedido);
     }
