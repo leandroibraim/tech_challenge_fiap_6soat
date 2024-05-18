@@ -1,5 +1,6 @@
 package com.example.demo.adapter.inbound.controller.response.pedido;
 
+import com.example.demo.adapter.inbound.controller.response.produto.ProdutoResponse;
 import lombok.Getter;
 import lombok.Setter;
 

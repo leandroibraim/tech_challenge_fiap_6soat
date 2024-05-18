@@ -6,7 +6,6 @@ import com.example.demo.adapter.inbound.controller.response.cliente.mapper.Clien
 import com.example.demo.core.ports.inbound.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.ports.inbound.cliente.RecuperarClienteUseCasePort;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +25,10 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/{documentoCliente}")
-    public ResponseEntity recuperar(@PathVariable("documentoCliente") final String documentoCliente) {
+    @GetMapping("/{cpf}")
+    public ResponseEntity<?> recuperar(@PathVariable("cpf") final String cpf) {
         return ResponseEntity.ok()
-                        .body(ClienteResponseMapper.INSTANCE.mapFrom(recuperarClienteUseCasePort.execute(documentoCliente)));
+                        .body(ClienteResponseMapper.INSTANCE.mapFrom(recuperarClienteUseCasePort.execute(cpf)));
 
     }
 }

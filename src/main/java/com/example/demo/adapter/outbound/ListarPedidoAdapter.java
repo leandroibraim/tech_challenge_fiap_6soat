@@ -1,5 +1,6 @@
-package com.example.demo.adapter.outbound.repository;
+package com.example.demo.adapter.outbound;
 
+import com.example.demo.adapter.outbound.repository.PedidoRepository;
 import com.example.demo.core.domain.Pedido;
 import com.example.demo.core.ports.outbound.pedido.ListarPedidosAdapterPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,14 @@ public class ListarPedidoAdapter implements ListarPedidosAdapterPort {
     public List<Pedido> listarTodosPedidos() {
         List<String> listaStatus = Arrays.asList("RECEBIDO", "EM_PREPARACAO", "PRONTO", "FINALIZADO");
         List<Pedido> listaPedido = new ArrayList<>();
+/*
 
          listaStatus.forEach(item -> {
              listaPedido.addAll(
                      PedidoEntityMapper.INSTANCE.mapFrom(
                              repository.listarPedidosPorStatus(item, LocalDate.now())));
          });
+*/
 
 
         return listaPedido;

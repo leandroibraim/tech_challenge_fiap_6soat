@@ -8,6 +8,6 @@ import lombok.Setter;
 public class ClienteRequest {
 
     private String nome;
-    private String documento;
+    private String cpf;
 
 }

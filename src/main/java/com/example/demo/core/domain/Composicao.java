@@ -1,16 +1,16 @@
 package com.example.demo.core.domain;
-import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Composicao {
 
-    public List<Produto> getProduto() {
-        return produto;
-    }
-
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
-    }
-
-    private List<Produto> produto;
+    private Long idComposicao;
+    private Long idProduto;
+    private int quantidade;
+    private double precoUnitario;
+    private Long numeroPedido;
 
 }
