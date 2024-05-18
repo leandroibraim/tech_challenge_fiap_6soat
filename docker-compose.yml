@@ -38,22 +38,6 @@ services:
     networks:
       - tech-challenge-network
 
-  dynamodb_migrator:
-    image: banst/awscli:latest
-    container_name: app-dynamodb_migrator
-    working_dir: /home/dynamodblocal
-    command: dynamodb create-table --cli-input-json file://tabela_produto.json --endpoint-url http://dynamodb:8000
-    volumes:
-      - ./tables:/home/dynamodblocal
-    environment:
-      - AWS_ACCESS_KEY_ID=local
-      - AWS_SECRET_ACCESS_KEY=local
-      - AWS_DEFAULT_REGION=us-east-1
-    depends_on:
-      - dynamodb
-    networks:
-      - tech-challenge-network
-
 networks:
   tech-challenge-network:
     driver: bridge

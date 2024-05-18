@@ -1,6 +1,5 @@
 package com.example.demo.adapter.outbound.repository;
 
-import com.example.demo.adapter.outbound.repository.mapper.PedidoEntityMapper;
 import com.example.demo.core.domain.Pedido;
 import com.example.demo.core.ports.outbound.pedido.ListarPedidosAdapterPort;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -28,8 +28,6 @@ public class PedidoController {
 
     @GetMapping
     public ResponseEntity<List<PedidoResponse>> listarPedidos() {
-
-
         return ResponseEntity.ok()
                 .body(PedidoResponseMapper.INSTANCE.mapFrom(
                         listarPedidosUseCasePort.execute()));
