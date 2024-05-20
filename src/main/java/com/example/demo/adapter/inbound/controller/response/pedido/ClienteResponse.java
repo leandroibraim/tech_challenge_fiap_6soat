@@ -1,5 +1,6 @@
 package com.example.demo.adapter.inbound.controller.response.pedido;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,9 @@ import lombok.Setter;
 public class ClienteResponse {
 
     private String nome;
-    private String documento;
+    private String cpf;
+
+    @JsonProperty("id_cliente")
+    private String idCliente;
 
 }

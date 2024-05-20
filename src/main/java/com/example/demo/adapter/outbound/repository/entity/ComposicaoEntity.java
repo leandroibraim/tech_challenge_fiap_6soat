@@ -15,9 +15,6 @@ public class ComposicaoEntity {
     @Column(name = "id_composicao")
     private Long idComposicao;
 
-    @Column(name = "id_produto")
-    private Long idProduto;
-
     @Column(name = "quantidade")
     private int quantidade;
 
@@ -27,5 +24,10 @@ public class ComposicaoEntity {
     @ManyToOne
     @JoinColumn(name = "numero_pedido")
     private PedidoEntity pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_produto")
+    private ProdutoEntity produto;
+
 
 }

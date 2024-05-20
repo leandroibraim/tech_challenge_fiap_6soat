@@ -9,5 +9,6 @@ public class ClienteResponse {
 
     private String nome;
     private String cpf;
+    private Long idCliente;
 
 }
