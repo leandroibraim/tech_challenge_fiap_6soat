@@ -3,6 +3,7 @@ package com.example.demo.adapter.outbound.repository.mapper;
 import com.example.demo.adapter.outbound.repository.entity.ComposicaoEntity;
 import com.example.demo.core.domain.Composicao;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public interface ComposicaoEntityMapper {
     ComposicaoEntity mapFrom(Composicao composicao);
     List<ComposicaoEntity> mapFroms(List<Composicao> composicao);
 
+    @Mapping(target = "nomeProduto", source = "produto.nome")
+    @Mapping(target = "categoria", source = "produto.categoria")
+    @Mapping(target = "idProduto", source = "produto.idProduto")
     Composicao mapFrom(ComposicaoEntity composicaoEntity);
     List<Composicao> mapFrom(List<ComposicaoEntity> composicaoEntity);
 

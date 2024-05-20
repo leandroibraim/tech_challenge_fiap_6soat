@@ -3,7 +3,6 @@ package com.example.demo.adapter.inbound.controller.response.pedido.mapper;
 import com.example.demo.adapter.inbound.controller.response.pedido.PedidoResponse;
 import com.example.demo.core.domain.Pedido;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -14,7 +13,6 @@ public interface PedidoResponseMapper {
 
     PedidoResponseMapper INSTANCE = Mappers.getMapper(PedidoResponseMapper.class);
 
-    @Mapping(target = "composicao", ignore = true)
     PedidoResponse mapFrom(Pedido pedido);
 
     List<PedidoResponse> mapFrom(List<Pedido> pedido);

@@ -4,6 +4,8 @@ public class Composicao {
 
     private Long idComposicao;
     private Long idProduto;
+    private String nomeProduto;
+    private String categoria;
     private int quantidade;
     private double precoUnitario;
     private Long numeroPedido;
@@ -22,6 +24,22 @@ public class Composicao {
 
     public void setIdComposicao(Long idComposicao) {
         this.idComposicao = idComposicao;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public int getQuantidade() {
