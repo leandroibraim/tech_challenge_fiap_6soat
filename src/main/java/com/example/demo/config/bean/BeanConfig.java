@@ -2,11 +2,14 @@ package com.example.demo.config.bean;
 
 import com.example.demo.core.ports.inbound.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.ports.inbound.cliente.RecuperarClienteUseCasePort;
+import com.example.demo.core.ports.inbound.pagamento.PagarPedidoUseCasePort;
 import com.example.demo.core.ports.inbound.pedido.ListarPedidosUseCasePort;
 import com.example.demo.core.ports.inbound.pedido.SalvarPedidoUseCasePort;
 import com.example.demo.core.ports.inbound.produto.GerenciarProdutoUseCasePort;
 import com.example.demo.core.ports.outbound.cliente.IncluirClienteAdapterPort;
 import com.example.demo.core.ports.outbound.cliente.RecuperarClienteAdapterPort;
+import com.example.demo.core.ports.outbound.pagamento.PagarPedidoAdapterPort;
+import com.example.demo.core.ports.outbound.pagamento.SalvarPagamentoAdapterPort;
 import com.example.demo.core.ports.outbound.pedido.ListarPedidosAdapterPort;
 import com.example.demo.core.ports.outbound.pedido.SalvarPedidoAdapterPort;
 import com.example.demo.core.ports.outbound.produto.GerenciarProdutoAdapterPort;
@@ -40,5 +43,10 @@ public class BeanConfig {
     @Bean
     public GerenciarProdutoUseCasePort incluirProdutoUseCasePort(GerenciarProdutoAdapterPort gerenciarProdutoAdapterPort){
         return new GerenciarProdutoUseCase(gerenciarProdutoAdapterPort);
+    }
+
+    @Bean
+    public PagarPedidoUseCasePort pagarPedidoUseCasePort(PagarPedidoAdapterPort pagarPedidoAdapterPort, SalvarPagamentoAdapterPort salvarPagamentoAdapterPort){
+        return new PagarPedidoUseCase(pagarPedidoAdapterPort, salvarPagamentoAdapterPort);
     }
 }
