@@ -18,9 +18,8 @@ public class GerenciarProdutoAdapter implements GerenciarProdutoAdapterPort {
     private final ProdutoRepository produtoRepository;
 
     @Override
-    public void execute(Produto produto) {
+    public void salvar(Produto produto) {
         var produtoEntity = ProdutoEntityMapper.INSTANCE.mapFrom(produto);
-        produtoEntity.setStatus(true);
         produtoRepository.save(produtoEntity);
     }
 
@@ -29,26 +28,6 @@ public class GerenciarProdutoAdapter implements GerenciarProdutoAdapterPort {
         return ProdutoEntityMapper.INSTANCE.mapFrom(produtoRepository.findByCategoriaAndStatus(categoria,true));
     }
 
-    @Override
-    public void deletarProduto(Long idProduto) {
-        Optional<ProdutoEntity> entity = produtoRepository.findById(idProduto);
-
-        if(entity.isPresent()){
-            entity.get().setStatus(false);
-            produtoRepository.save(entity.get());
-        }
-    }
-
-    @Override
-    public void alterarProduto(Produto produto) {
-        Optional<ProdutoEntity> entity = produtoRepository.findById(produto.getIdProduto());
-
-        if(entity.isPresent()){
-            var produtoEntity = ProdutoEntityMapper.INSTANCE.mapFrom(produto);
-            produtoEntity.setStatus(true);
-            produtoRepository.save(produtoEntity);
-        }
-    }
 
     @Override
     public Produto buscarProdutoPorId(Long id) {

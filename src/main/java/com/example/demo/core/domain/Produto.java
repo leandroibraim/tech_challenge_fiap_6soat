@@ -8,6 +8,7 @@ public class Produto {
     private String categoria;
     private Double valor;
     private Long idProduto;
+    private boolean status;
 
     public String getNome() {
         return nome;
@@ -47,5 +48,13 @@ public class Produto {
 
     public void setIdProduto(Long idProduto) {
         this.idProduto = idProduto;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
