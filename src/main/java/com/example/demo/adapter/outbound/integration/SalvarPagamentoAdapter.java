@@ -5,22 +5,22 @@ import com.example.demo.adapter.outbound.repository.entity.PagamentoEntity;
 import com.example.demo.adapter.outbound.repository.mapper.PagamentoEntityMapper;
 import com.example.demo.core.domain.Pagamento;
 import com.example.demo.core.ports.outbound.pagamento.SalvarPagamentoAdapterPort;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SalvarPagamentoAdapter implements SalvarPagamentoAdapterPort {
 
     private final PagamentoRepository pagamentoRepository;
-    private final PagamentoEntityMapper pagamentoEntityMapper;
 
-    public SalvarPagamentoAdapter(PagamentoRepository pagamentoRepository, PagamentoEntityMapper pagamentoEntityMapper) {
+    @Autowired
+    public SalvarPagamentoAdapter(PagamentoRepository pagamentoRepository) {
         this.pagamentoRepository = pagamentoRepository;
-        this.pagamentoEntityMapper = pagamentoEntityMapper;
     }
 
     @Override
     public void salvar(Pagamento pagamento) {
-        PagamentoEntity pagamentoEntity = pagamentoEntityMapper.mapFrom(pagamento);
+        PagamentoEntity pagamentoEntity = PagamentoEntityMapper.INSTANCE.mapFrom(pagamento);
         pagamentoRepository.save(pagamentoEntity);
     }
 }

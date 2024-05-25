@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PagamentoController {
 
     private PagarPedidoUseCasePort pagarPedidoUseCasePort;
-    private PagamentoMapper pagamentoMapper;
 
     @PostMapping
     public ResponseEntity<?> realizarPagamento(@RequestBody PagamentoRequest pagamentoRequest) {
 
-        Pagamento pagamento = pagamentoMapper.mapFrom(pagamentoRequest);
+        Pagamento pagamento = PagamentoMapper.INSTANCE.mapFrom(pagamentoRequest);
         pagarPedidoUseCasePort.checkout(pagamento);
 
         return ResponseEntity.ok().build();

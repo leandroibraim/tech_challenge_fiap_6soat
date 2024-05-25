@@ -11,6 +11,9 @@ public class PagamentoRequest {
     @JsonProperty("id_pagamento")
     private Long idPagamento;
 
+    @JsonProperty("numero_pedido")
+    private Long numeroPedido;
+
     @JsonProperty("tipo_do_pagamento")
     private String tipoDoPagamento;
 

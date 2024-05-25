@@ -18,8 +18,7 @@ public interface PagamentoEntityMapper {
 
     PagamentoEntity mapFrom(Pagamento pagamento);
 
-    Pagamento mapFrom(PagamentoEntity pagamento);
-
+    Pagamento mapFrom(PagamentoEntity pagamentoEntity);
 
     default String dataHoraAtual() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
