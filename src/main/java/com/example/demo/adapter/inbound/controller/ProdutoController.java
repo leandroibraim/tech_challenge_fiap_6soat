@@ -1,6 +1,7 @@
 package com.example.demo.adapter.inbound.controller;
 
-import com.example.demo.adapter.inbound.controller.request.produto.ProdutoRequest;
+import com.example.demo.adapter.inbound.controller.request.produto.ProdutoAlterarRequest;
+import com.example.demo.adapter.inbound.controller.request.produto.ProdutoCadastroRequest;
 import com.example.demo.adapter.inbound.controller.request.pedido.mapper.ProdutoMapper;
 import com.example.demo.adapter.inbound.controller.response.pedido.mapper.ProdutoResponseMapper;
 import com.example.demo.adapter.inbound.controller.response.produto.ProdutoResponse;
@@ -20,8 +21,8 @@ public class ProdutoController {
     private final GerenciarProdutoUseCasePort gerenciarProdutoUseCasePort;
 
     @PostMapping
-    public ResponseEntity<?> incluir(@RequestBody ProdutoRequest request){
-        gerenciarProdutoUseCasePort.execute(ProdutoMapper.INSTANCE.mapFrom(request));
+    public ResponseEntity<?> incluir(@RequestBody ProdutoCadastroRequest request){
+        gerenciarProdutoUseCasePort.salvar(ProdutoMapper.INSTANCE.mapFrom(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -33,8 +34,8 @@ public class ProdutoController {
                         gerenciarProdutoUseCasePort.buscarProdutoPorCategoria(categoria)));
     }
 
-    @PutMapping("/{idProduto}")
-    public ResponseEntity<?> alterar(@RequestBody ProdutoRequest request){
+    @PatchMapping("/{idProduto}")
+    public ResponseEntity<?> alterar(@RequestBody ProdutoAlterarRequest request){
         gerenciarProdutoUseCasePort.alterarProduto(ProdutoMapper.INSTANCE.mapFrom(request));
         return ResponseEntity.ok().build();
     }

@@ -22,7 +22,6 @@ public class ListarPedidoAdapter implements ListarPedidosAdapterPort {
 
     @Override
     public List<Pedido> listarTodosPedidos() {
-
         return PedidoEntityMapper.INSTANCE.mapFrom(repository.findAll());
     }
 }
