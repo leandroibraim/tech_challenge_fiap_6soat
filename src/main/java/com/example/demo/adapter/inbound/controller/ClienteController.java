@@ -5,6 +5,8 @@ import com.example.demo.adapter.inbound.controller.request.cliente.mapper.Client
 import com.example.demo.adapter.inbound.controller.response.cliente.mapper.ClienteResponseMapper;
 import com.example.demo.core.ports.inbound.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.ports.inbound.cliente.RecuperarClienteUseCasePort;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,7 @@ public class ClienteController {
     private final RecuperarClienteUseCasePort recuperarClienteUseCasePort;
 
     @PostMapping
-    public ResponseEntity<?> incluir(@RequestBody ClienteRequest request){
+    public ResponseEntity<?> incluir(@RequestBody @Valid ClienteRequest request){
         incluirClienteUseCasePort.execute(ClienteMapper.INSTANCE.mapFrom(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

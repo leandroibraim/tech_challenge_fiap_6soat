@@ -1,11 +1,11 @@
 package com.example.demo.adapter.inbound.controller;
 
-import com.example.demo.adapter.inbound.controller.request.produto.ProdutoAlterarRequest;
-import com.example.demo.adapter.inbound.controller.request.produto.ProdutoCadastroRequest;
+import com.example.demo.adapter.inbound.controller.request.produto.ProdutoRequest;
 import com.example.demo.adapter.inbound.controller.request.pedido.mapper.ProdutoMapper;
 import com.example.demo.adapter.inbound.controller.response.pedido.mapper.ProdutoResponseMapper;
 import com.example.demo.adapter.inbound.controller.response.produto.ProdutoResponse;
 import com.example.demo.core.ports.inbound.produto.GerenciarProdutoUseCasePort;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class ProdutoController {
     private final GerenciarProdutoUseCasePort gerenciarProdutoUseCasePort;
 
     @PostMapping
-    public ResponseEntity<?> incluir(@RequestBody ProdutoCadastroRequest request){
+    public ResponseEntity<?> incluir(@RequestBody @Valid ProdutoRequest request){
         gerenciarProdutoUseCasePort.salvar(ProdutoMapper.INSTANCE.mapFrom(request));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -35,7 +35,7 @@ public class ProdutoController {
     }
 
     @PatchMapping("/{idProduto}")
-    public ResponseEntity<?> alterar(@RequestBody ProdutoAlterarRequest request){
+    public ResponseEntity<?> alterar(@RequestBody ProdutoRequest request){
         gerenciarProdutoUseCasePort.alterarProduto(ProdutoMapper.INSTANCE.mapFrom(request));
         return ResponseEntity.ok().build();
     }

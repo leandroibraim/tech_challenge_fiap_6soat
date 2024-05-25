@@ -1,7 +1,7 @@
 package com.example.demo.adapter.inbound.controller.request.pedido;
 
-import lombok.Builder;
-import lombok.Data;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +9,12 @@ import lombok.Setter;
 @Setter
 public class ClienteRequest {
 
+    @NotEmpty(message = "O campo não pode ser vazio.")
+    @NotNull(message = "O campo obrigatório")
     private String nome;
-    private String documento;
+
+    @NotEmpty(message = "O campo não pode ser vazio.")
+    @NotNull(message = "O campo obrigatório")
+    private String cpf;
 
 }
