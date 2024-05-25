@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -33,6 +34,8 @@ public class PedidoEntity {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ComposicaoEntity> composicao;
 
-
+    @OneToOne
+    @JoinColumn(name = "idPagamento")
+    private PagamentoEntity pagamentoEntity;
 
 }
