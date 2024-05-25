@@ -14,7 +14,4 @@ public interface ProdutoResponseMapper {
 
     ProdutoResponse mapFrom(Produto produto);
     List<ProdutoResponse> mapFrom(List<Produto> produto);
-
-
-
 }

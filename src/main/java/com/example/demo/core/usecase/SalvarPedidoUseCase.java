@@ -7,7 +7,6 @@ import com.example.demo.core.ports.inbound.pedido.SalvarPedidoUseCasePort;
 import com.example.demo.core.ports.outbound.pedido.SalvarPedidoAdapterPort;
 import com.example.demo.core.ports.outbound.produto.GerenciarProdutoAdapterPort;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

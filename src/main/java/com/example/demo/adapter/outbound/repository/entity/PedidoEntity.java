@@ -35,7 +35,7 @@ public class PedidoEntity {
     private List<ComposicaoEntity> composicao;
 
     @OneToOne
-    @JoinColumn(name = "idPagamento")
+    @JoinColumn(name = "id_pagamento")
     private PagamentoEntity pagamentoEntity;
 
 }
