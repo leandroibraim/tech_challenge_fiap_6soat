@@ -13,7 +13,6 @@ public interface ProdutoEntityMapper {
     ProdutoEntityMapper INSTANCE = Mappers.getMapper(ProdutoEntityMapper.class);
 
     ProdutoEntity mapFrom(Produto produto);
-
     Produto mapFrom(ProdutoEntity produto);
     List<Produto> mapFrom(List<ProdutoEntity> produto);
 

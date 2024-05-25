@@ -15,8 +15,9 @@ public class GerenciarProdutoUseCase implements GerenciarProdutoUseCasePort {
     }
 
     @Override
-    public void execute(Produto produto) {
-        gerenciarProdutoAdapterPort.execute(produto);
+    public void salvar(Produto produto) {
+        produto.setStatus(true);
+        gerenciarProdutoAdapterPort.salvar(produto);
     }
 
     @Override
@@ -26,11 +27,15 @@ public class GerenciarProdutoUseCase implements GerenciarProdutoUseCasePort {
 
     @Override
     public void deletarProduto(Long idProduto) {
-        gerenciarProdutoAdapterPort.deletarProduto(idProduto);
+        var produto = gerenciarProdutoAdapterPort.buscarProdutoPorId(idProduto);
+        produto.setStatus(false);
+
+        gerenciarProdutoAdapterPort.salvar(produto);
     }
 
     @Override
     public void alterarProduto(Produto produto) {
-        gerenciarProdutoAdapterPort.alterarProduto(produto);
+        produto.setStatus(true);
+        gerenciarProdutoAdapterPort.salvar(produto);
     }
 }
