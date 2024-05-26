@@ -3,12 +3,14 @@ package com.example.demo.core.usecase;
 import com.example.demo.core.domain.Composicao;
 import com.example.demo.core.domain.Pedido;
 import com.example.demo.core.domain.Produto;
+import com.example.demo.core.domain.exception.ProdutoNotFoundException;
 import com.example.demo.core.ports.inbound.pedido.SalvarPedidoUseCasePort;
 import com.example.demo.core.ports.outbound.pedido.SalvarPedidoAdapterPort;
 import com.example.demo.core.ports.outbound.produto.GerenciarProdutoAdapterPort;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SalvarPedidoUseCase implements SalvarPedidoUseCasePort {
 
@@ -23,10 +25,12 @@ public class SalvarPedidoUseCase implements SalvarPedidoUseCasePort {
     @Override
     public void execute(Pedido pedido) {
 
-        List<Produto> listProduto = new ArrayList<>();
-
         pedido.getComposicao().forEach(item -> {
+
             var auxProduto = gerenciarProdutoAdapterPort.buscarProdutoPorId(item.getIdProduto());
+            if(Objects.isNull(auxProduto)){
+                throw new ProdutoNotFoundException("Produto nao localizado na base");
+            }
             item.setPrecoUnitario(auxProduto.getValor());
             item.setIdProduto(auxProduto.getIdProduto());
         });

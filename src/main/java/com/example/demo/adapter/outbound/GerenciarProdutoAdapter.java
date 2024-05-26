@@ -31,6 +31,6 @@ public class GerenciarProdutoAdapter implements GerenciarProdutoAdapterPort {
 
     @Override
     public Produto buscarProdutoPorId(Long id) {
-        return ProdutoEntityMapper.INSTANCE.mapFrom(produtoRepository.findById(id).get());
+        return ProdutoEntityMapper.INSTANCE.mapFrom(produtoRepository.findById(id).orElse(null));
     }
 }

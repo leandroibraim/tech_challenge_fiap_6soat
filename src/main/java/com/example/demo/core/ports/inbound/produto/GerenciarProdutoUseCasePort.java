@@ -8,5 +8,5 @@ public interface GerenciarProdutoUseCasePort {
     void salvar(Produto produto);
     List<Produto> buscarProdutoPorCategoria(String categoria);
     void deletarProduto(Long idProduto);
-    void alterarProduto(Produto produto);
+    void alterarProduto(Produto produto, Long idProduto);
 }
