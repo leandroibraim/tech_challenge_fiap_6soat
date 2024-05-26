@@ -8,13 +8,17 @@ import lombok.AllArgsConstructor;
 
 import java.util.Objects;
 
-@AllArgsConstructor
 public class RecuperarClienteUseCase implements RecuperarClienteUseCasePort {
 
     private final RecuperarClienteAdapterPort recuperarClienteAdapterPort;
 
+    public RecuperarClienteUseCase(RecuperarClienteAdapterPort recuperarClienteAdapterPort) {
+        this.recuperarClienteAdapterPort = recuperarClienteAdapterPort;
+    }
+
     @Override
     public Cliente execute(String documentoCliente) {
+        final var auxDocumento = documentoCliente.replaceAll("\\D", "");
         final var result = recuperarClienteAdapterPort.execute(documentoCliente);
 
         if(Objects.isNull(result)){
