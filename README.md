@@ -14,6 +14,9 @@ Detalhes do projeto
 ## Swagger 
  Link de acesso a documentacao do swagger
 > http://localhost:8080/swagger-ui/index.html
+>
+## Miro
+https://miro.com/app/board/uXjVKYtyiY8=/?share_link_id=979162661456
 
 ## Funcionalidades
 - Cadastro do Cliente
