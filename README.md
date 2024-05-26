@@ -8,7 +8,8 @@ Solucionar o problema, a lanchonete irá investir em um sistema de autoatendimen
 
 ## Event Storming
 - Link da documentação do event storming do grupo: [[Miro](https://miro.com/app/board/uXjVKYtyiY8=/?share_link_id=475227793071)] 
-Detalhes do projeto
+
+## Detalhes do projeto
 //TODO
 
 ## Swagger 
