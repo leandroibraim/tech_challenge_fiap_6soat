@@ -7,16 +7,13 @@ Solucionar o problema, a lanchonete irá investir em um sistema de autoatendimen
 
 
 ## Event Storming
-- Link da documentação do event storming do grupo: [Miro](https://miro.com/app/board/uXjVKYtyiY8=/)
+- Link da documentação do event storming do grupo: [Miro] https://miro.com/app/board/uXjVKYtyiY8=/](https://miro.com/app/board/uXjVKYtyiY8=/?share_link_id=979162661456
 Detalhes do projeto
 //TODO
 
 ## Swagger 
  Link de acesso a documentacao do swagger
 > http://localhost:8080/swagger-ui/index.html
->
-## Miro
-https://miro.com/app/board/uXjVKYtyiY8=/?share_link_id=979162661456
 
 ## Funcionalidades
 - Cadastro do Cliente
@@ -38,11 +35,11 @@ https://miro.com/app/board/uXjVKYtyiY8=/?share_link_id=979162661456
 
 - Rodrigo Seiji Campos Imai - RM 353766
 
-- Rodrigo da Silva Figueiredo
+- Rodrigo da Silva Figueiredo - RM 354438
 
-- Eduardo de Matos Almeida
+- Eduardo de Matos Almeida - RM 355917
 
-- Leandro Ibraim Reis
+- Leandro Ibraim Reis - RM 354381
 
 ## Contribuidores
 
