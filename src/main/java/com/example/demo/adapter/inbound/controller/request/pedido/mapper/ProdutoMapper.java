@@ -1,6 +1,6 @@
 package com.example.demo.adapter.inbound.controller.request.pedido.mapper;
 
-import com.example.demo.adapter.inbound.controller.request.produto.ProdutoBaseRequest;
+import com.example.demo.adapter.inbound.controller.request.produto.ProdutoRequest;
 import com.example.demo.core.domain.Produto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -10,5 +10,5 @@ public interface ProdutoMapper {
 
     ProdutoMapper INSTANCE = Mappers.getMapper(ProdutoMapper.class);
 
-    Produto mapFrom(ProdutoBaseRequest produtoRequest);
+    Produto mapFrom(ProdutoRequest produtoRequest);
 }
