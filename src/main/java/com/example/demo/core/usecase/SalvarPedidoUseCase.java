@@ -31,7 +31,9 @@ public class SalvarPedidoUseCase implements SalvarPedidoUseCasePort {
             if(Objects.isNull(auxProduto)){
                 throw new ProdutoNotFoundException("Produto nao localizado na base");
             }
+            item.setCategoria(auxProduto.getCategoria());
             item.setPrecoUnitario(auxProduto.getValor());
+            item.setNomeProduto(auxProduto.getNome());
             item.setIdProduto(auxProduto.getIdProduto());
         });
 
