@@ -1,5 +1,9 @@
 package com.example.demo.adapter.inbound.controller;
 
+import com.example.demo.core.domain.exception.CategoriaInvalidaException;
+import com.example.demo.core.domain.exception.ClienteDuplicadoException;
+import com.example.demo.core.domain.exception.ClienteNotFoundException;
+import com.example.demo.core.domain.exception.ProdutoNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -25,4 +29,44 @@ public class CustomExceptionHandlers {
         });
         return errors;
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ClienteDuplicadoException.class)
+    public Map<String, String> handle(ClienteDuplicadoException ex) {
+        Map<String, String> errors = new HashMap<>();
+            String errorMessage = ex.getMessage();
+            errors.put("cause", errorMessage);
+        return errors;
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ClienteNotFoundException.class)
+    public Map<String, String> handle(ClienteNotFoundException ex) {
+        Map<String, String> errors = new HashMap<>();
+        String errorMessage = ex.getMessage();
+        errors.put("cause", errorMessage);
+        return errors;
+    }
+
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(CategoriaInvalidaException.class)
+    public Map<String, String> handle(CategoriaInvalidaException ex) {
+        Map<String, String> errors = new HashMap<>();
+        String errorMessage = ex.getMessage();
+        errors.put("cause", errorMessage);
+        return errors;
+    }
+
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ProdutoNotFoundException.class)
+    public Map<String, String> handle(ProdutoNotFoundException ex) {
+        Map<String, String> errors = new HashMap<>();
+        String errorMessage = ex.getMessage();
+        errors.put("cause", errorMessage);
+        return errors;
+    }
+
+
 }

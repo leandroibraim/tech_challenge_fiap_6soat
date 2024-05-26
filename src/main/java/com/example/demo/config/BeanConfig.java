@@ -1,4 +1,4 @@
-package com.example.demo.config.bean;
+package com.example.demo.config;
 
 import com.example.demo.core.ports.inbound.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.ports.inbound.cliente.RecuperarClienteUseCasePort;
@@ -27,8 +27,9 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfig {
 
     @Bean
-    public IncluirClienteUseCasePort incluirClienteUseCasePort(IncluirClienteAdapterPort incluirClienteAdapterPort) {
-        return new IncluirClienteUseCase(incluirClienteAdapterPort);
+    public IncluirClienteUseCasePort incluirClienteUseCasePort(IncluirClienteAdapterPort incluirClienteAdapterPort,
+                                                               RecuperarClienteAdapterPort recuperarClienteAdapterPort) {
+        return new IncluirClienteUseCase(recuperarClienteAdapterPort, incluirClienteAdapterPort);
     }
 
     @Bean
