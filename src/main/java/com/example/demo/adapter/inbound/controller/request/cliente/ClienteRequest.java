@@ -1,5 +1,6 @@
 package com.example.demo.adapter.inbound.controller.request.cliente;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -17,5 +18,9 @@ public class ClienteRequest {
     @CPF(message = "CPF invalido.")
     @NotEmpty(message = "O campo não pode ser vazio.")
     private String cpf;
+
+    @Email(message = "Email invalido.")
+    @NotEmpty(message = "O campo não pode ser vazio.")
+    private String email;
 
 }
