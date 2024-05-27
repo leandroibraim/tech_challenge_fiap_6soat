@@ -99,16 +99,18 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 -- Table `db_soat`.`tb_pagamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_soat`.`tb_pagamento` (
-  `id_pagamento` BIGINT NOT NULL,
-  `numero_pedido` BIGINT NOT NULL,
-  `status` ENUM('PENDENTE', 'APROVADO', 'REPROVADO', 'CANCELADO') NOT NULL DEFAULT 'PENDENTE',
-  `data_pagamento` DATETIME NOT NULL,
+
+DROP TABLE IF EXISTS `tb_pagamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_pagamento` (
+  `id_pagamento` bigint NOT NULL AUTO_INCREMENT,
+  `numero_pedido` bigint NOT NULL,
+  `status` enum('PENDENTE','APROVADO','REPROVADO','CANCELADO') NOT NULL DEFAULT 'PENDENTE',
+  `data_pagamento` datetime NOT NULL,
   PRIMARY KEY (`id_pagamento`),
-  INDEX `FK_PAGAMENTO_ID_PEDIDO_idx` (`numero_pedido` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+  KEY `FK_PAGAMENTO_ID_PEDIDO_idx` (`numero_pedido`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
