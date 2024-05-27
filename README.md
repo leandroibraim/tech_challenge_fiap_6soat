@@ -10,9 +10,26 @@ Solucionar o problema, a lanchonete irá investir em um sistema de autoatendimen
 - Link da documentação do event storming do grupo: [[Miro](https://miro.com/app/board/uXjVKYtyiY8=/?share_link_id=475227793071)] 
 
 ## Detalhes do projeto
-//TODO
 
 [Link do diagrama da arquitetura Hexagonal](https://online.visual-paradigm.com/share.jsp?id=333338333330312d31)
+
+
+## Setup aplicação
+- Clone o repositório:
+
+  	git clone https://github.com/leandroibraim/tech_challenge_fiap_6soat.git
+  	cd tech_challenge_fiap_6soat
+
+- Inicie o docker-compose:
+
+    *	Windows:
+
+         > docker-compose up --build
+
+    *	Linux e macOS:
+
+         > docker compose up --build
+
 
 ## Swagger 
  Link de acesso a documentacao do swagger
