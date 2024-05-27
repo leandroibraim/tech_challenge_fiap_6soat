@@ -103,7 +103,7 @@ DROP TABLE IF EXISTS tb_pagamento;
 CREATE TABLE tb_pagamento (
                               id_pagamento bigint NOT NULL AUTO_INCREMENT,
                               numero_pedido bigint NOT NULL,
-                              valor_totoal DECIMAL(10,2) NOT NULL,
+                              valor_total DECIMAL(10,2) NOT NULL,
                               tipo_do_pagamento VARCHAR(255) NULL DEFAULT NULL,
                               status enum('PENDENTE','APROVADO','REPROVADO','CANCELADO') NOT NULL DEFAULT 'PENDENTE',
                               data_pagamento datetime NOT NULL,
