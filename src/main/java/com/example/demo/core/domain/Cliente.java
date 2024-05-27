@@ -15,7 +15,10 @@ public class Cliente {
     }
 
     public String getCpf() {
-        return cpf.replaceAll("\\D", "");
+        if(cpf != null) {
+            return cpf.replaceAll("\\D", "");
+        }
+        return null;
     }
 
     public void setCpf(String cpf) {

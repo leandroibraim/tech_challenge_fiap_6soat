@@ -8,9 +8,6 @@ import lombok.Setter;
 @Setter
 public class PagamentoRequest {
 
-    @JsonProperty("id_pagamento")
-    private Long idPagamento;
-
     @JsonProperty("numero_pedido")
     private Long numeroPedido;
 

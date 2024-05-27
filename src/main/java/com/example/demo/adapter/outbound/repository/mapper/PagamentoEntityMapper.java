@@ -15,7 +15,7 @@ public interface PagamentoEntityMapper {
     PagamentoEntityMapper INSTANCE = Mappers.getMapper(PagamentoEntityMapper.class);
 
     @Mapping(target = "dataPagamento", expression = "java(dataHoraAtual())")
-
+    @Mapping(target = "pedidoEntity.numeroPedido", source = "numeroPedido")
     PagamentoEntity mapFrom(Pagamento pagamento);
 
     Pagamento mapFrom(PagamentoEntity pagamentoEntity);
