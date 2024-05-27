@@ -12,6 +12,8 @@ Solucionar o problema, a lanchonete irá investir em um sistema de autoatendimen
 ## Detalhes do projeto
 //TODO
 
+[Link do diagrama da arquitetura Hexagonal](https://online.visual-paradigm.com/share.jsp?id=333338333330312d31)
+
 ## Swagger 
  Link de acesso a documentacao do swagger
 > http://localhost:8080/swagger-ui/index.html
