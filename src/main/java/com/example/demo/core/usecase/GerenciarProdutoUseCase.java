@@ -55,6 +55,7 @@ public class GerenciarProdutoUseCase implements GerenciarProdutoUseCasePort {
             throw new ProdutoNotFoundException("Produto nao localizado na base.");
         }
         produto.setStatus(true);
+        produto.setIdProduto(result.getIdProduto());
         gerenciarProdutoAdapterPort.salvar(produto);
     }
 }

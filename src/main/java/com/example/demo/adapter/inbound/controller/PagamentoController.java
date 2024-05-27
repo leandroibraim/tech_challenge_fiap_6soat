@@ -5,6 +5,7 @@ import com.example.demo.adapter.inbound.controller.request.pagamento.mapper.Paga
 import com.example.demo.core.domain.Pagamento;
 import com.example.demo.core.ports.inbound.pagamento.PagarPedidoUseCasePort;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,6 @@ public class PagamentoController {
 
         pagarPedidoUseCasePort.checkout(PagamentoMapper.INSTANCE.mapFrom(pagamentoRequest));
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

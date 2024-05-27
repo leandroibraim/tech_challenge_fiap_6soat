@@ -25,8 +25,8 @@ public class SalvarPedidoUseCase implements SalvarPedidoUseCasePort {
         pedido.getComposicao().forEach(item -> {
 
             var auxProduto = gerenciarProdutoAdapterPort.buscarProdutoPorId(item.getIdProduto());
-            if(Objects.isNull(auxProduto)){
-                throw new ProdutoNotFoundException("Produto nao localizado na base");
+            if(Objects.isNull(auxProduto) || !auxProduto.isStatus()){
+                throw new ProdutoNotFoundException("Produto nao localizado na base ou inativo");
             }
             item.setCategoria(auxProduto.getCategoria());
             item.setPrecoUnitario(auxProduto.getValor());
