@@ -32,4 +32,5 @@ public class PagamentoEntity {
 
     @Column(name = "data_pagamento")
     private String dataPagamento;
+
 }

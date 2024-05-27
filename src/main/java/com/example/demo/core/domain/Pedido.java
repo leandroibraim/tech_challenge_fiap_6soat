@@ -10,13 +10,15 @@ public class Pedido {
     private List<Composicao> composicao;
     private String status;
     private String etapa;
+    private Long idPagamento;
+    private String dataPedido;
 
-    public Double getValorTotal() {
-        return valorTotal;
+    public String getStatus() {
+        return status;
     }
 
-    public void setValorTotal(Double valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Long getNumeroPedido() {
@@ -35,6 +37,14 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public List<Composicao> getComposicao() {
         return composicao;
     }
@@ -43,19 +53,27 @@ public class Pedido {
         this.composicao = composicao;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getEtapa() {
         return etapa;
     }
 
     public void setEtapa(String etapa) {
         this.etapa = etapa;
+    }
+
+    public Long getIdPagamento() {
+        return idPagamento;
+    }
+
+    public void setIdPagamento(Long idPagamento) {
+        this.idPagamento = idPagamento;
+    }
+
+    public String getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(String dataPedido) {
+        this.dataPedido = dataPedido;
     }
 }

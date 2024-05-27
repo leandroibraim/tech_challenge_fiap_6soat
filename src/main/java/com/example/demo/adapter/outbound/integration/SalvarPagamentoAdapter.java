@@ -19,8 +19,8 @@ public class SalvarPagamentoAdapter implements SalvarPagamentoAdapterPort {
     }
 
     @Override
-    public void salvar(Pagamento pagamento) {
-        PagamentoEntity pagamentoEntity = PagamentoEntityMapper.INSTANCE.mapFrom(pagamento);
-        pagamentoRepository.save(pagamentoEntity);
+    public Pagamento salvar(Pagamento pagamento) {
+        final var result = pagamentoRepository.save(PagamentoEntityMapper.INSTANCE.mapFrom(pagamento));
+        return PagamentoEntityMapper.INSTANCE.mapFrom(result);
     }
 }

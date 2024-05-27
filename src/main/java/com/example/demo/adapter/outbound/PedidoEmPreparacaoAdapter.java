@@ -1,17 +1,16 @@
 package com.example.demo.adapter.outbound;
 
-import com.example.demo.adapter.inbound.controller.request.pedido.mapper.PedidoMapper;
 import com.example.demo.adapter.outbound.repository.PedidoRepository;
 import com.example.demo.adapter.outbound.repository.entity.PedidoEntity;
 import com.example.demo.adapter.outbound.repository.mapper.PedidoEntityMapper;
 import com.example.demo.core.domain.Pedido;
-import com.example.demo.core.ports.inbound.pedido.PedidoEmPreparacaoUseCasePort;
+import com.example.demo.core.ports.outbound.pedido.PedidoEmPreparacaoAdapterPort;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Component
-public class PedidoEmPreparacaoAdapter implements PedidoEmPreparacaoUseCasePort {
+public class PedidoEmPreparacaoAdapter implements PedidoEmPreparacaoAdapterPort {
 
     private final PedidoRepository pedidoRepository;
 

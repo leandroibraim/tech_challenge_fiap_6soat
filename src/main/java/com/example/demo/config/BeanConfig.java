@@ -11,8 +11,7 @@ import com.example.demo.core.ports.outbound.cliente.IncluirClienteAdapterPort;
 import com.example.demo.core.ports.outbound.cliente.RecuperarClienteAdapterPort;
 import com.example.demo.core.ports.outbound.pagamento.PagarPedidoAdapterPort;
 import com.example.demo.core.ports.outbound.pagamento.SalvarPagamentoAdapterPort;
-import com.example.demo.core.ports.outbound.pedido.ListarPedidosAdapterPort;
-import com.example.demo.core.ports.outbound.pedido.SalvarPedidoAdapterPort;
+import com.example.demo.core.ports.outbound.pedido.*;
 import com.example.demo.core.ports.outbound.produto.GerenciarProdutoAdapterPort;
 import com.example.demo.core.usecase.GerenciarProdutoUseCase;
 import com.example.demo.core.usecase.IncluirClienteUseCase;
@@ -53,7 +52,12 @@ public class BeanConfig {
     }
 
     @Bean
-    public PagarPedidoUseCasePort pagarPedidoUseCasePort(PagarPedidoAdapterPort pagarPedidoAdapterPort, SalvarPagamentoAdapterPort salvarPagamentoAdapterPort, PedidoEmPreparacaoUseCasePort pedidoEmPreparacaoUseCasePort) {
-        return new PagarPedidoUseCase(pagarPedidoAdapterPort, salvarPagamentoAdapterPort, pedidoEmPreparacaoUseCasePort);
+    public PagarPedidoUseCasePort pagarPedidoUseCasePort(PagarPedidoAdapterPort pagarPedidoAdapterPort,
+                                                         SalvarPagamentoAdapterPort salvarPagamentoAdapterPort,
+                                                         PedidoEmPreparacaoAdapterPort pedidoEmPreparacaoAdapterPort,
+                                                         BuscarPedidoAdapterPort buscarPedidoAdapterPort,
+                                                         SalvarPedidoAdapterPort salvarPedidoAdapterPort,
+                                                         AtualizarPedidoAdapterPort atualizarPedidoAdapterPort) {
+        return new PagarPedidoUseCase(pagarPedidoAdapterPort, salvarPagamentoAdapterPort, pedidoEmPreparacaoAdapterPort, buscarPedidoAdapterPort, salvarPedidoAdapterPort, atualizarPedidoAdapterPort);
     }
 }

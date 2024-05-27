@@ -23,6 +23,10 @@ public interface PedidoEntityMapper {
     Pedido mapFrom(PedidoEntity pedidoEntity);
     List<Pedido> mapFrom(List<PedidoEntity> pedidoEntity);
 
+    @Mapping(target = "dataMudancaEtapa", expression = "java(dataHoraAtual())")
+    @Mapping(target =  "pagamentoEntity.idPagamento", source = "idPagamento")
+    PedidoEntity updateFrom(Pedido pedido);
+
     default String dataHoraAtual() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }

@@ -21,8 +21,7 @@ public class PagamentoController {
     @PostMapping
     public ResponseEntity<?> realizarPagamento(@RequestBody PagamentoRequest pagamentoRequest) {
 
-        Pagamento pagamento = PagamentoMapper.INSTANCE.mapFrom(pagamentoRequest);
-        pagarPedidoUseCasePort.checkout(pagamento);
+        pagarPedidoUseCasePort.checkout(PagamentoMapper.INSTANCE.mapFrom(pagamentoRequest));
 
         return ResponseEntity.ok().build();
     }
