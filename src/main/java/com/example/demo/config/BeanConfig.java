@@ -54,10 +54,8 @@ public class BeanConfig {
     @Bean
     public PagarPedidoUseCasePort pagarPedidoUseCasePort(PagarPedidoAdapterPort pagarPedidoAdapterPort,
                                                          SalvarPagamentoAdapterPort salvarPagamentoAdapterPort,
-                                                         PedidoEmPreparacaoAdapterPort pedidoEmPreparacaoAdapterPort,
                                                          BuscarPedidoAdapterPort buscarPedidoAdapterPort,
-                                                         SalvarPedidoAdapterPort salvarPedidoAdapterPort,
                                                          AtualizarPedidoAdapterPort atualizarPedidoAdapterPort) {
-        return new PagarPedidoUseCase(pagarPedidoAdapterPort, salvarPagamentoAdapterPort, pedidoEmPreparacaoAdapterPort, buscarPedidoAdapterPort, salvarPedidoAdapterPort, atualizarPedidoAdapterPort);
+        return new PagarPedidoUseCase(pagarPedidoAdapterPort, salvarPagamentoAdapterPort, buscarPedidoAdapterPort, atualizarPedidoAdapterPort);
     }
 }
