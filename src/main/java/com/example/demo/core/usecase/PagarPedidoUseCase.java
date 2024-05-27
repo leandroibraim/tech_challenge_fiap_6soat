@@ -2,6 +2,7 @@ package com.example.demo.core.usecase;
 
 import com.example.demo.core.domain.Pagamento;
 import com.example.demo.core.domain.Pedido;
+import com.example.demo.core.domain.exception.PedidoNotFoundException;
 import com.example.demo.core.ports.inbound.pagamento.PagarPedidoUseCasePort;
 import com.example.demo.core.ports.outbound.pagamento.PagarPedidoAdapterPort;
 import com.example.demo.core.ports.outbound.pagamento.SalvarPagamentoAdapterPort;
@@ -17,17 +18,13 @@ public class PagarPedidoUseCase implements PagarPedidoUseCasePort {
 
     private final PagarPedidoAdapterPort pagarPedidoAdapterPort;
     private final SalvarPagamentoAdapterPort salvarPagamentoAdapterPort;
-    private final PedidoEmPreparacaoAdapterPort pedidoEmPreparacaoAdapter;
     private final BuscarPedidoAdapterPort buscarPedidoAdapterPort;
-    private final SalvarPedidoAdapterPort salvarPedidoAdapterPort;
     private final AtualizarPedidoAdapterPort atualizarPedidoAdapterPort;
 
-    public PagarPedidoUseCase(PagarPedidoAdapterPort pagarPedidoAdapterPort, SalvarPagamentoAdapterPort salvarPagamentoAdapterPort, PedidoEmPreparacaoAdapterPort pedidoEmPreparacaoAdapter, BuscarPedidoAdapterPort buscarPedidoAdapterPort, SalvarPedidoAdapterPort salvarPedidoAdapterPort, AtualizarPedidoAdapterPort atualizarPedidoAdapterPort) {
+    public PagarPedidoUseCase(PagarPedidoAdapterPort pagarPedidoAdapterPort, SalvarPagamentoAdapterPort salvarPagamentoAdapterPort, BuscarPedidoAdapterPort buscarPedidoAdapterPort, AtualizarPedidoAdapterPort atualizarPedidoAdapterPort) {
         this.pagarPedidoAdapterPort = pagarPedidoAdapterPort;
         this.salvarPagamentoAdapterPort = salvarPagamentoAdapterPort;
-        this.pedidoEmPreparacaoAdapter = pedidoEmPreparacaoAdapter;
         this.buscarPedidoAdapterPort = buscarPedidoAdapterPort;
-        this.salvarPedidoAdapterPort = salvarPedidoAdapterPort;
         this.atualizarPedidoAdapterPort = atualizarPedidoAdapterPort;
     }
 
@@ -38,7 +35,7 @@ public class PagarPedidoUseCase implements PagarPedidoUseCasePort {
         Pedido pedido = buscarPedidoAdapterPort.execute(pagamento.getNumeroPedido());
 
         if(Objects.isNull(pedido)){
-            throw new RuntimeException();
+            throw new PedidoNotFoundException("Pedido nao localizado.");
         }
 
         pedido.setEtapa("EM_PREPARACAO");
@@ -50,11 +47,7 @@ public class PagarPedidoUseCase implements PagarPedidoUseCasePort {
 
         pedido.setIdPagamento(dadosPagamento.getIdPagamento());
 
-        //Consulta id do pagamento
-        //Pedido pedidos = pedidoEmPreparacaoAdapter.execute(pagamento.getNumeroPedido());
-
         atualizarPedidoAdapterPort.execute(pedido);
-
 
     }
 }

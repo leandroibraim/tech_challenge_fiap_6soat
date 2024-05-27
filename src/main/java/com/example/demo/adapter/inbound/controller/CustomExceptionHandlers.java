@@ -1,9 +1,6 @@
 package com.example.demo.adapter.inbound.controller;
 
-import com.example.demo.core.domain.exception.CategoriaInvalidaException;
-import com.example.demo.core.domain.exception.ClienteDuplicadoException;
-import com.example.demo.core.domain.exception.ClienteNotFoundException;
-import com.example.demo.core.domain.exception.ProdutoNotFoundException;
+import com.example.demo.core.domain.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -62,6 +59,15 @@ public class CustomExceptionHandlers {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ProdutoNotFoundException.class)
     public Map<String, String> handle(ProdutoNotFoundException ex) {
+        Map<String, String> errors = new HashMap<>();
+        String errorMessage = ex.getMessage();
+        errors.put("cause", errorMessage);
+        return errors;
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(PedidoNotFoundException.class)
+    public Map<String, String> handle(PedidoNotFoundException ex) {
         Map<String, String> errors = new HashMap<>();
         String errorMessage = ex.getMessage();
         errors.put("cause", errorMessage);
