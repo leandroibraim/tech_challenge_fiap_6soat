@@ -99,19 +99,18 @@ CREATE TABLE IF NOT EXISTS `db_soat`.`tb_composicao_pedido` (
 -- -----------------------------------------------------
 -- Table `db_soat`.`tb_pagamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_soat`.`tb_pagamento` (
-                                                        `id_pagamento` BIGINT NOT NULL AUTO_INCREMENT,
-                                                        `numero_pedido` BIGINT NOT NULL,
-                                                        `status` ENUM('PENDENTE', 'APROVADO', 'REPROVADO', 'CANCELADO') NOT NULL DEFAULT 'PENDENTE',
-    `data_pagamento` DATETIME NOT NULL,
-    `tipo_do_pagamento` VARCHAR(255) NULL DEFAULT NULL,
-    `valor` DECIMAL(10,2) NULL DEFAULT NULL
-    PRIMARY KEY (`id_pagamento`),
-    INDEX `FK_PAGAMENTO_ID_PEDIDO_idx` (`numero_pedido` ASC) VISIBLE)
-    ENGINE = InnoDB
-    AUTO_INCREMENT = 40
-    DEFAULT CHARACTER SET = utf8mb4
-    COLLATE = utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS tb_pagamento;
+CREATE TABLE tb_pagamento (
+                              id_pagamento bigint NOT NULL AUTO_INCREMENT,
+                              numero_pedido bigint NOT NULL,
+                              valor_totoal DECIMAL(10,2) NOT NULL,
+                              tipo_do_pagamento VARCHAR(255) NULL DEFAULT NULL,
+                              status enum('PENDENTE','APROVADO','REPROVADO','CANCELADO') NOT NULL DEFAULT 'PENDENTE',
+                              data_pagamento datetime NOT NULL,
+                              PRIMARY KEY (id_pagamento),
+                              KEY FK_PAGAMENTO_ID_PEDIDO_idx (numero_pedido),
+                              CONSTRAINT FK_PAGAMENTO_ID_PEDIDO FOREIGN KEY (numero_pedido) REFERENCES tb_pedido (numero_pedido)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
