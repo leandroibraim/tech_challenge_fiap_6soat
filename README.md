@@ -28,8 +28,8 @@ Solucionar o problema, a lanchonete irá investir em um sistema de autoatendimen
 ## Setup aplicação
 - Clone o repositório:
 
-  	git clone https://github.com/leandroibraim/tech_challenge_fiap_6soat.git
-  	cd tech_challenge_fiap_6soat
+  	> git clone https://github.com/leandroibraim/tech_challenge_fiap_6soat.git
+  	> cd tech_challenge_fiap_6soat
 
 - Inicie o docker-compose:
 
